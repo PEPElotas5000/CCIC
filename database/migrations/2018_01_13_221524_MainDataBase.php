@@ -24,6 +24,8 @@ class MainDataBase extends Migration
             $table -> date('fecha_nacimiento');
             $table -> string('direccion', 45);
             $table -> string('contrasenia', 255);
+            $table -> string('nombre_padre', 100);
+            $table -> string('nombre_madre', 100);
 
             $table -> primary('id');
         });
@@ -95,7 +97,16 @@ class MainDataBase extends Migration
             $table -> string('observaciones', 255);
 
             $table -> primary('id');
-        });        
+        }); 
+        Schema::create('fecha_ingreso', function($table){
+            $table -> integer('id')->unsigned();
+            $table -> integer('anio_academico')->unsigned();
+            $table -> tinyInteger('trimestre')->unsigned();
+            $table -> date('fecha_inicio');
+            $table -> date('fecha_fin');
+
+            $table -> primary('id');
+        });           
     }
 
     /**
@@ -113,5 +124,6 @@ class MainDataBase extends Migration
         Schema::drop('alumnos');
         Schema::drop('docentes');
         Schema::drop('grados');
+        Schema::drop('fecha_ingreso');
     }
 }
