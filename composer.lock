@@ -908,6 +908,7 @@
         },
         {
             "name": "ramsey/uuid",
+<<<<<<< HEAD
             "version": "3.7.2",
             "source": {
                 "type": "git",
@@ -918,6 +919,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/ramsey/uuid/zipball/bba83ad77bb9deb6d3c352a7361b818e415b221d",
                 "reference": "bba83ad77bb9deb6d3c352a7361b818e415b221d",
+=======
+            "version": "3.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+>>>>>>> f7016ec97df716e4c165212d81ab8aa2d0aeaaca
                 "shasum": ""
             },
             "require": {
@@ -929,7 +942,11 @@
             },
             "require-dev": {
                 "apigen/apigen": "^4.1",
+<<<<<<< HEAD
                 "codeception/aspect-mock": "^1.0 | ~2.0.0",
+=======
+                "codeception/aspect-mock": "^1.0 | ^2.0",
+>>>>>>> f7016ec97df716e4c165212d81ab8aa2d0aeaaca
                 "doctrine/annotations": "~1.2.0",
                 "goaop/framework": "1.0.0-alpha.2 | ^1.0 | ^2.1",
                 "ircmaxell/random-lib": "^1.1",
@@ -937,7 +954,11 @@
                 "mockery/mockery": "^0.9.4",
                 "moontoast/math": "^1.1",
                 "php-mock/php-mock-phpunit": "^0.3|^1.1",
+<<<<<<< HEAD
                 "phpunit/phpunit": "^4.7|^5.0",
+=======
+                "phpunit/phpunit": "^4.7|>=5.0 <5.4",
+>>>>>>> f7016ec97df716e4c165212d81ab8aa2d0aeaaca
                 "satooshi/php-coveralls": "^0.6.1",
                 "squizlabs/php_codesniffer": "^2.3"
             },
@@ -986,7 +1007,11 @@
                 "identifier",
                 "uuid"
             ],
+<<<<<<< HEAD
             "time": "2018-01-13T22:22:03+00:00"
+=======
+            "time": "2017-09-22T20:46:04+00:00"
+>>>>>>> f7016ec97df716e4c165212d81ab8aa2d0aeaaca
         },
         {
             "name": "swiftmailer/swiftmailer",
