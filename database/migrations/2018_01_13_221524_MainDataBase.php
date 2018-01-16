@@ -18,20 +18,20 @@ class MainDataBase extends Migration
         
         Schema::create('alumnos', function($table){
 
-            $table -> integer('id')->unsigned()->index();
+            $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
             $table -> string('apellidos', 45);
             $table -> date('fecha_nacimiento');
             $table -> string('direccion', 45);
             $table -> string('contrasenia', 255);
-            $table -> string('nombre_padre', 100);
-            $table -> string('nombre_madre', 100);
+            $table -> string('apoderado', 100);
+            $table -> string('telefono', 30);
 
             $table -> primary('id');
         });
 
         Schema::create('coordinadores', function($table){
-            $table -> integer('id')->unsigned()->index();
+            $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
             $table -> string('apellidos', 45);
             $table -> string('contrasenia', 255);
@@ -40,73 +40,81 @@ class MainDataBase extends Migration
         });
 
         Schema::create('docentes', function($table){
-            $table -> integer('id')->unsigned()->index();
+            $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
             $table -> string('apellidos', 45);
             $table -> string('especialidad', 10);
             $table -> string('contrasenia', 255);
+            $table -> string('telefono', 30);
 
             $table -> primary('id');
         });
 
         Schema::create('asignaturas', function($table){
-            $table -> integer('id')->unsigned()->index();
-            $table -> string('nombre', 45);
+            $table -> string('id', 20)->index();
+            $table -> string('nombre', 60);
 
             $table -> primary('id');
         });
         Schema::create('cursos', function($table){
-            $table -> integer('id')->unsigned()->index();
-            $table -> integer('asig')->unsigned();
-            $table -> integer('grado')->unsigned();
-            $table -> integer('doce')->unsigned();
-            $table -> string('horario', 50);
-            $table -> integer('anio')->unsigned();
+            $table -> string('id', 20)->index();
+            $table -> string('id_grado', 20);
+            $table -> string('id_asignatura', 20);
+            $table -> string('id_docente', 20);
 
-            $table -> primary(['id', 'asig', 'grado', 'doce', 'horario', 'anio']);
+            $table -> primary('id');
 
         });
 
         Schema::create('grados', function($table){
-            $table -> integer('id')->unsigned()->index();
-            $table -> string('numero', 45);
-            $table -> string('seccion', 45);
-            $table -> string('nivel', 45);
-            $table -> integer('anio_academico')->unsigned();
-            $table -> integer('vacantes');
+            $table -> string('id', 20)->index();
+            $table -> tinyInteger('nro');
+            $table -> string('seccion', 1);
+            $table -> string('nivel', 10);
+            $table -> string('anio_academico');
+            $table -> tinyInteger('vacantes');
 
-            $table -> primary(['id', 'nivel', 'seccion', 'anio_academico']);
+            $table -> primary('id');
         });
 
         Schema::create('matriculas', function($table){
-            $table -> integer('id')->unsigned()->index();
-            $table -> integer('id_alumno')->unsigned();
-            $table -> integer('id_grado')->unsigned();
+            $table -> string('id', 20)->index();
+            $table -> string('id_alumno', 20);
+            $table -> string('id_grado', 20);
             $table -> date('fecha');
-            $table -> integer('anio_academico')->unsigned();
 
-            $table -> primary(['id', 'id_alumno', 'anio_academico']);
+            $table -> primary('id');
         });
 
         Schema::create('notas', function($table){
-            $table -> integer('id')->unsigned();
-            $table -> integer('id_matricula')->unsigned();
-            $table -> integer('id_curso')->unsigned();
+            $table -> string('id', 20);
+            $table -> string('id_matricula', 20);
+            $table -> string('id_curso', 20);
             $table -> tinyInteger('trimestre')->unsigned();
-            $table -> integer('nota')->unsigned();
-            $table -> string('observaciones', 255);
+            $table -> tinyInteger('nota')->unsigned();
+            $table -> string('observacion', 255);
+            $table -> date('fecha_ing');
 
             $table -> primary('id');
         }); 
         Schema::create('fecha_ingreso', function($table){
-            $table -> integer('id')->unsigned();
-            $table -> integer('anio_academico')->unsigned();
+            $table -> string('id', 20);
+            $table -> string('anio_academico');
             $table -> tinyInteger('trimestre')->unsigned();
             $table -> date('fecha_inicio');
             $table -> date('fecha_fin');
 
             $table -> primary('id');
-        });           
+        });     
+        Schema::create('salon_horario', function($table){
+            $table -> tinyInteger('nro_salon')->unsigned();
+            $table -> string('horario', 50);
+            $table -> string('tipo', 10);
+            $table -> tinyInteger('capacidad');
+            $table -> string('id_curso', 20);
+
+            $table -> primary(['nro_salon', 'horario']);
+        });       
     }
 
     /**
@@ -125,5 +133,6 @@ class MainDataBase extends Migration
         Schema::drop('docentes');
         Schema::drop('grados');
         Schema::drop('fecha_ingreso');
+        Schema::drop('salon_horario');
     }
 }
