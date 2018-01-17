@@ -16,7 +16,7 @@ class MainDataBase extends Migration
     public function up()
     {
         
-        Schema::create('alumnos', function($table){
+        Schema::create('alumno', function($table){
 
             $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
@@ -30,7 +30,7 @@ class MainDataBase extends Migration
             $table -> primary('id');
         });
 
-        Schema::create('coordinadores', function($table){
+        Schema::create('coordinador', function($table){
             $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
             $table -> string('apellidos', 45);
@@ -39,7 +39,7 @@ class MainDataBase extends Migration
             $table -> primary('id');
         });
 
-        Schema::create('docentes', function($table){
+        Schema::create('docente', function($table){
             $table -> string('id', 20)->index();
             $table -> string('nombres', 45);
             $table -> string('apellidos', 45);
@@ -50,13 +50,13 @@ class MainDataBase extends Migration
             $table -> primary('id');
         });
 
-        Schema::create('asignaturas', function($table){
+        Schema::create('asignatura', function($table){
             $table -> string('id', 20)->index();
             $table -> string('nombre', 60);
 
             $table -> primary('id');
         });
-        Schema::create('cursos', function($table){
+        Schema::create('curso', function($table){
             $table -> string('id', 20)->index();
             $table -> string('id_grado', 20);
             $table -> string('id_asignatura', 20);
@@ -66,7 +66,7 @@ class MainDataBase extends Migration
 
         });
 
-        Schema::create('grados', function($table){
+        Schema::create('grado', function($table){
             $table -> string('id', 20)->index();
             $table -> tinyInteger('nro');
             $table -> string('seccion', 1);
@@ -77,7 +77,7 @@ class MainDataBase extends Migration
             $table -> primary('id');
         });
 
-        Schema::create('matriculas', function($table){
+        Schema::create('matricula', function($table){
             $table -> string('id', 20)->index();
             $table -> string('id_alumno', 20);
             $table -> string('id_grado', 20);
@@ -86,7 +86,7 @@ class MainDataBase extends Migration
             $table -> primary('id');
         });
 
-        Schema::create('notas', function($table){
+        Schema::create('nota', function($table){
             $table -> string('id', 20);
             $table -> string('id_matricula', 20);
             $table -> string('id_curso', 20);
@@ -124,14 +124,14 @@ class MainDataBase extends Migration
      */
     public function down()
     {
-        Schema::drop('coordinadores');
-        Schema::drop('notas');
-        Schema::drop('matriculas');
-        Schema::drop('cursos');
-        Schema::drop('asignaturas');
-        Schema::drop('alumnos');
-        Schema::drop('docentes');
-        Schema::drop('grados');
+        Schema::drop('coordinador');
+        Schema::drop('nota');
+        Schema::drop('matricula');
+        Schema::drop('curso');
+        Schema::drop('asignatura');
+        Schema::drop('alumno');
+        Schema::drop('docente');
+        Schema::drop('grado');
         Schema::drop('fecha_ingreso');
         Schema::drop('salon_horario');
     }

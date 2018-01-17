@@ -19,24 +19,24 @@ class MainRelationShips extends Migration
     public function up()
     {
         
-        Schema::table('cursos', function($table){
-            $table -> foreign('id_asignatura')->references('id')->on('asignaturas')->onDelete('cascade');
-            $table -> foreign('id_grado')->references('id')->on('grados')->onDelete('cascade');
-            $table -> foreign('id_docente')->references('id')->on('docentes')->onDelete('cascade');
+        Schema::table('curso', function($table){
+            $table -> foreign('id_asignatura')->references('id')->on('asignatura')->onDelete('cascade');
+            $table -> foreign('id_grado')->references('id')->on('grado')->onDelete('cascade');
+            $table -> foreign('id_docente')->references('id')->on('docente')->onDelete('cascade');
         });
 
-        Schema::table('matriculas', function($table){
-            $table -> foreign('id_alumno')->references('id')->on('alumnos')->onDelete('cascade');
-            $table -> foreign('id_grado')->references('id')->on('grados')->onDelete('cascade');
+        Schema::table('matricula', function($table){
+            $table -> foreign('id_alumno')->references('id')->on('alumno')->onDelete('cascade');
+            $table -> foreign('id_grado')->references('id')->on('grado')->onDelete('cascade');
         });
 
-        Schema::table('notas', function($table){
-            $table -> foreign('id_matricula')->references('id')->on('matriculas')->onDelete('cascade');
-            $table -> foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade');
+        Schema::table('nota', function($table){
+            $table -> foreign('id_matricula')->references('id')->on('matricula')->onDelete('cascade');
+            $table -> foreign('id_curso')->references('id')->on('curso')->onDelete('cascade');
         });    
 
         Schema::table('salon_horario', function($table){
-            $table -> foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade');
+            $table -> foreign('id_curso')->references('id')->on('curso')->onDelete('cascade');
         });      
     }
 
