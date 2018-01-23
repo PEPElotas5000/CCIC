@@ -55,7 +55,7 @@
                     <em>Yesterday</em>
                   </span>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque eleinfend...</div>
+                <div>Lorem ipsum ...</div>
               </a>
             </li>
             <li class="divider"></li>
@@ -67,7 +67,7 @@
                     <em>Yesterday</em>
                   </span>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque eleinfend...</div>
+                <div>Lorem ipsum ...</div>
               </a>
             </li>
             <li class="divider"></li>
@@ -79,7 +79,7 @@
                     <em>Yesterday</em>
                   </span>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque eleinfend...</div>
+                <div>Lorem ipsum ...</div>
               </a>
             </li>
             <li class="divider"></li>
