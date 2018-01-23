@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.layout');
 });
-
 #comentario para un commit prueba "Krozmok"
